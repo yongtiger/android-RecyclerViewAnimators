@@ -10,8 +10,8 @@ buildscript {
         ]
 
         release = [
-                versionName: "0.0.9",   ///v0.0.9#public void setHasStableIds(boolean hasStableIds)
-                versionCode: 9
+                versionName: "0.0.10",   ///v0.0.10#public void setHasStableIds(boolean hasStableIds)#由adapter赋值mAdapter
+                versionCode: 10
         ]
     }
 
