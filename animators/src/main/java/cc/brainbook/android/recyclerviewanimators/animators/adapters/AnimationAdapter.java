@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 
+import java.util.List;
+
 import cc.brainbook.android.recyclerviewanimators.animators.internal.ViewHelper;
 
 /**
@@ -73,6 +75,21 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
 
   @Override public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
     mAdapter.onBindViewHolder(holder, position);
+
+    int adapterPosition = holder.getAdapterPosition();
+    if (!isFirstOnly || adapterPosition > mLastPosition) {
+      for (Animator anim : getAnimators(holder.itemView)) {
+        anim.setDuration(mDuration).start();
+        anim.setInterpolator(mInterpolator);
+      }
+      mLastPosition = adapterPosition;
+    } else {
+      ViewHelper.clear(holder.itemView);
+    }
+  }
+
+  @Override public void onBindViewHolder(RecyclerView.ViewHolder holder, int position, List payloads) {
+    mAdapter.onBindViewHolder(holder, position, payloads);
 
     int adapterPosition = holder.getAdapterPosition();
     if (!isFirstOnly || adapterPosition > mLastPosition) {
