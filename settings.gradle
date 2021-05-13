@@ -1,0 +1,3 @@
+rootProject.name = "android-RecyclerviewAnimators"
+include ':app'
+include ':animators'
