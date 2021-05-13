@@ -76,32 +76,13 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
   @Override public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
     mAdapter.onBindViewHolder(holder, position);
 
-    int adapterPosition = holder.getAdapterPosition();
-    if (!isFirstOnly || adapterPosition > mLastPosition) {
-      for (Animator anim : getAnimators(holder.itemView)) {
-        anim.setDuration(mDuration).start();
-        anim.setInterpolator(mInterpolator);
-      }
-      mLastPosition = adapterPosition;
-    } else {
-      ViewHelper.clear(holder.itemView);
-    }
+    onBindViewHolder(holder);
   }
-
 
   @Override public void onBindViewHolder(RecyclerView.ViewHolder holder, int position, List payloads) {
     mAdapter.onBindViewHolder(holder, position, payloads);
 
-    int adapterPosition = holder.getAdapterPosition();
-    if (!isFirstOnly || adapterPosition > mLastPosition) {
-      for (Animator anim : getAnimators(holder.itemView)) {
-        anim.setDuration(mDuration).start();
-        anim.setInterpolator(mInterpolator);
-      }
-      mLastPosition = adapterPosition;
-    } else {
-      ViewHelper.clear(holder.itemView);
-    }
+    onBindViewHolder(holder);
   }
 
   @Override public void onViewRecycled(RecyclerView.ViewHolder holder) {
@@ -141,5 +122,18 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
 
   @Override public long getItemId(int position) {
     return mAdapter.getItemId(position);
+  }
+
+  private void onBindViewHolder(RecyclerView.ViewHolder holder) {
+    int adapterPosition = holder.getAdapterPosition();
+    if (!isFirstOnly || adapterPosition > mLastPosition) {
+      for (Animator anim : getAnimators(holder.itemView)) {
+        anim.setDuration(mDuration).start();
+        anim.setInterpolator(mInterpolator);
+      }
+      mLastPosition = adapterPosition;
+    } else {
+      ViewHelper.clear(holder.itemView);
+    }
   }
 }
