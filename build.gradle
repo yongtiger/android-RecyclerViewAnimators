@@ -10,8 +10,8 @@ buildscript {
         ]
 
         release = [
-                versionName: "0.0.4",   ///v0.0.4#public void onBindViewHolder(RecyclerView.ViewHolder holder, int position, List payloads)
-                versionCode: 4
+                versionName: "0.0.5",   ///v0.0.5#public void onBindViewHolder(RecyclerView.ViewHolder holder, int position, List payloads)
+                versionCode: 5
         ]
     }
 

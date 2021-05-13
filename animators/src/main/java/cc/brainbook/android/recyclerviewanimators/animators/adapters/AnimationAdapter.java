@@ -75,13 +75,11 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
 
   @Override public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
     mAdapter.onBindViewHolder(holder, position);
-
     onBindViewHolder(holder);
   }
 
   @Override public void onBindViewHolder(RecyclerView.ViewHolder holder, int position, List payloads) {
     mAdapter.onBindViewHolder(holder, position, payloads);
-
     onBindViewHolder(holder);
   }
 
