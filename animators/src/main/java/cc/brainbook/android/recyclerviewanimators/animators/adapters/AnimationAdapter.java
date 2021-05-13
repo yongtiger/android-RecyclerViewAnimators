@@ -124,6 +124,7 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
 
   @Override
   public void setHasStableIds(boolean hasStableIds) {
+    super.setHasStableIds(hasStableIds);
     mAdapter.setHasStableIds(hasStableIds);
   }
 
