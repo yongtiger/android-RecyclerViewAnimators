@@ -36,6 +36,7 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
   private boolean isFirstOnly = true;
 
   public AnimationAdapter(RecyclerView.Adapter<RecyclerView.ViewHolder> adapter) {
+    super.setHasStableIds(adapter.hasStableIds());
     mAdapter = adapter;
   }
 
