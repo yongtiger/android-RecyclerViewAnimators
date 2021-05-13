@@ -10,8 +10,8 @@ buildscript {
         ]
 
         release = [
-                versionName: "0.0.6",   ///v0.0.6#public void setHasStableIds(boolean hasStableIds)
-                versionCode: 6
+                versionName: "0.0.7",   ///v0.0.7#public void setHasStableIds(boolean hasStableIds)
+                versionCode: 7
         ]
     }
 
