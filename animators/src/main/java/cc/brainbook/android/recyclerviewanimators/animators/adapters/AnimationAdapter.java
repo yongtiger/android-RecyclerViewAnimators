@@ -122,6 +122,11 @@ public abstract class AnimationAdapter extends RecyclerView.Adapter<RecyclerView
     return mAdapter.getItemId(position);
   }
 
+  @Override
+  public void setHasStableIds(boolean hasStableIds) {
+    mAdapter.setHasStableIds(hasStableIds);
+  }
+
   private void onBindViewHolder(RecyclerView.ViewHolder holder) {
     int adapterPosition = holder.getAdapterPosition();
     if (!isFirstOnly || adapterPosition > mLastPosition) {
